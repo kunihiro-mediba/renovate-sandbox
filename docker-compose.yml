@@ -1,0 +1,19 @@
+services:
+  node:
+    image: node:16.18.0-bullseye-slim
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    # container_name: container-node
+    networks:
+      - default
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/app:cached
+    working_dir: /app
+    tty: true
+
+networks:
+  default:
+    name: network-default
